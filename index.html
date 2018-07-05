@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="testApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Angular JS </title>
+    <link rel="stylesheet" href="LIB/bootstrap.min.css">
+    <link rel="stylesheet" href="CSS/style.css">      
+</head>
+<body>
+    <div id ="main">
+       <ng-view></ng-view>
+       <script src="LIB/angular.min.js"></script>
+       <script src="JS/app.js"></script>
+   <br/> 
+   <div ng-controller="myCtr">
+     <h4>{{message1}}</h4>  
+   </div>
+   <br/> 
+   <div ng-controller="objCtr">
+      <table border="1">
+          <tr>
+              <th> Name </th>
+              <th> Age </th>
+              <th> Salary </th>
+              <th> Company </th>
+              <th>Remove</th>
+          </tr>
+          <tr ng-repeat="user in users">
+              <td>{{user.Name}}</td>
+              <td>{{user.Age}}</td>
+              <td>{{user.Salary}}</td>
+              <td>{{user.Company}}</td>
+              <td ng-click="removeUser(user)"><button type="button" class="btn btn-danger">Delete</button></td>
+          </tr>
+      </table>
+      <br/>
+
+      <form ng-submit="addUsers()">
+          <input type="text" placeholder="Enter Your Name" ng-model="newName" required><br/><br/>
+          <input type="text" placeholder="Enter Your Age" ng-model="newAge" required><br/><br/>
+          <input type="text" placeholder="Enter Your Salary" ng-model="newSalary" required><br/><br/>
+          <input type="text" placeholder="Enter Your Company" ng-model="newCompany" required><br/><br/>
+          <input type="submit" value="Submit"type="button" class="btn btn-success" id="btn">
+      </form>
+   </div>
+</div>
+</body>
+</html>
